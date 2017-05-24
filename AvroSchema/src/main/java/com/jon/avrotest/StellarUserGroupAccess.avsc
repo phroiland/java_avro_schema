@@ -1,0 +1,42 @@
+{
+    "namespace":"com.jon.avrotest",
+    "type":"record",
+    "doc":"This Schema describes Stellar Group Data",
+    "name":"StellarUserGroupAccess",
+    "fields": [
+        {"name":"group_id","type": "long"},
+        {"name":"user_id","type": "long"},
+        {"name":"group_details","type":
+            {"type":"array", "items":
+                {"namespace":"com.jon.avrotest",
+                type":"record", "name":"StellarGroup", "fields": [
+                    {"name":"quantity","type": "int"},
+                    {"name":"zone_info","type": "string","doc":"Time zone database representing the groups time zone."},
+                    {"name":"locale","type":
+                        {"type":"array","items":[
+                        {"name":"lat", "type":["double","null"]},
+                        {"name":"long","type":["double","null"]}],"doc":"Groups' locale"},
+                    {"name":"user_detail","type":
+                        {"namespace":"com.jon.avrotest",
+                        "type":"record", "name":"StellarUser", "fields": [
+                            {"name":"user_id","type": "long"},
+                            {"name":"user_name","type": "string","doc":"Name of User"},
+                            {"name":"user_email","type": "string"},
+                            {"name":"email_verified","type": "boolean"},
+                            {"name":"user_description","type": ["string", "null"], "default": ""},
+                            {"name":"user_status","type":
+                                {"name":"user_status", "type": "enum", "symbols": [
+                                    "ACTIVE", "INACTIVE"]}, "default":"ACTIVE"},
+                            {"name":"user_category","type":
+                                {"type": "array", "items": "string"}, "doc": "This contains array of categories"},
+                            {"name": "user_hash", "type":
+                                {"type": "fixed", "name": "user_hash", "size": 5}}
+                        ]
+                        }
+                    }
+                ]
+                }
+            }
+        }
+    ]
+}

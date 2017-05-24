@@ -1,0 +1,28 @@
+{
+    "namespace":"com.jon.avrotest",
+    "name":"Group",
+    "type":"record",
+    "doc":"This Schema describes Group Data",
+    "fields": [
+        { "name":"quantity", "type":"int" },
+        { "name":"zone_info", "type":"string", "doc":"Time zone database." },
+        { "name":"location", "type": {
+            "type":"array",
+            "items": {
+                "name":"location",
+                "type":"record",
+                "fields": [
+                    { "name":"longitude", "type":"double" },
+                    { "name":"latitude", "type":"double" },
+                    { "name":"city", "type":"string" }
+                ]
+            }
+        }
+        },
+        { "name":"User", "type": {
+            "type":"array",
+            "items": com.jon.avrotest.User
+            }
+        }
+    ]
+}

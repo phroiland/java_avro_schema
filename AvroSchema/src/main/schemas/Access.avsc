@@ -1,0 +1,15 @@
+{
+    "namespace":"com.jon.avrotest",
+    "name":"Access",
+    "type":"record",
+    "doc":"This Schema describes Access Data",
+    "fields":[
+        { "name":"group_id", "type": "long" },
+        { "name":"user_id", "type": "long" },
+        { "name":"Group", "type": {
+            "type":"array",
+            "items": com.jon.avrotest.Group
+            }
+        }
+    ]
+}

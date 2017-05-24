@@ -1,0 +1,25 @@
+{
+    "namespace":"com.jon.avrotest",
+    "name":"User",
+    "type":"record",
+    "doc":"This Schema describes User Data",
+    "fields": [
+        { "name":"user_id", "type":"long" },
+        { "name":"user_name", "type":"string" },
+        { "name":"user_email", "type": "string" },
+        { "name":"email_verified", "type":"boolean" },
+        { "name":"user_description", "type": [ "string", "null" ] },
+        { "name":"user_status", "default":"ACTIVE", "type": {
+            "name":"user_status",
+            "type":"enum",
+            "symbols": [ "ACTIVE", "INACTIVE" ]
+            }
+        },
+        { "name":"user_hash", "type": {
+            "type":"fixed",
+            "name":"user_hash",
+            "size":5
+            }
+        }
+    ]
+}

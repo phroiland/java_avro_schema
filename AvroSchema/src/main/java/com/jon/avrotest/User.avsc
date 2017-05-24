@@ -1,0 +1,24 @@
+[{
+    "namespace":"com.jon.avrotest",
+    "name":"StellarUser",
+    "type":"record",
+    "doc":"This Schema describes Stellar User Data",
+    "fields": [
+        { "name":"user_id", "type":"long" },
+        { "name":"user_name", "type":"string" },
+        { "name":"user_email", "type": "string" },
+        { "name":"email_verified", "type":"boolean" },
+        { "name":"user_description", "type": [ "string", "null" ], "default":"" },
+        { "name":"user_status", "type": {
+            "name":"user_status", "type":"enum", "symbols": [ "ACTIVE", "INACTIVE" ]
+            },
+            "default":"ACTIVE"
+        },
+        { "name":"user_hash", "type": {
+            "type":"fixed",
+            "name":"user_hash",
+            "size":5
+            }
+        }
+    ]
+}]

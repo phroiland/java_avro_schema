@@ -1,0 +1,11 @@
+[{
+    "namespace":"com.jon.avrotest",
+    "name":"StellarAccess",
+    "type":"record",
+    "doc":"This Schema describes Stellar Access Data",
+    "fields":[
+        {"name":"group_id","type": "long"},
+        {"name":"user_id","type": "long"},
+        {"name":"group_details","type":
+            {"type":"array", "items":com.jon.avrotest.StellarGroup}}]
+}]
